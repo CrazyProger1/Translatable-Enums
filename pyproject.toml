@@ -5,6 +5,10 @@ description = "Translatable-Enums is a i18n tool which uses built-in Enums as a 
 authors = ["CrazyProger1 <crazyproger1@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+packages = [
+    { include = "tenums" },
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.12"
