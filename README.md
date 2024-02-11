@@ -41,11 +41,11 @@ class Messages(TranslatableEnum):
 
 
 set_domain('app', './resources/languages')
-set_language('en')
+set_language('en_US')
 
 print(Messages.HELLO, Messages.WORLD)  # Hello, World!
 
-set_language('ua')
+set_language('uk_UA')
 
 print(Messages.HELLO, Messages.WORLD)  # Привіт, Світ!
 ```
