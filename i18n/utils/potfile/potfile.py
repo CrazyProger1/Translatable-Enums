@@ -36,7 +36,10 @@ class POTFile:
             raise KeyError(f'Duplicate key: {key}')
 
         self._cached_keys.add(key)
-        self._file.write(f'# {comment}\nmsgid "{key}"\nmsgstr ""\n')
+        text = f'msgid "{key}"\nmsgstr ""\n'
+        if comment:
+            text = f'# {comment}\n{text}'
+        self._file.write(text)
 
     @property
     def keys(self):
