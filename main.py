@@ -1,4 +1,4 @@
-from i18n import TranslatableEnum
+from i18n import TranslatableEnum, extract_keys
 
 
 class MyEnum(TranslatableEnum):

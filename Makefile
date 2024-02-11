@@ -7,3 +7,8 @@ test:
 .PHONY: build
 build:
 	poetry build
+
+
+.PHONY: help
+help:
+	poetry run python -m i18n -h

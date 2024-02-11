@@ -26,12 +26,20 @@ def setup_argparse() -> argparse.ArgumentParser:
         nargs='?'
     )
 
+    parser.add_argument(
+        '-v', '--version',
+        action='store_true',
+        help='show version and exit',
+        default=False
+    )
+
     return parser
 
 
 def main():
     parser = setup_argparse()
     args = parser.parse_args()
+    print(args)
 
 
 if __name__ == '__main__':
