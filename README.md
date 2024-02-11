@@ -48,6 +48,10 @@ print(Messages.HELLO, Messages.WORLD)  # Hello, World!
 set_language('uk_UA')
 
 print(Messages.HELLO, Messages.WORLD)  # Привіт, Світ!
+
+set_language('fr_FR')
+
+print(Messages.HELLO, Messages.WORLD)  # Bonjour le monde!
 ```
 
 ## Status

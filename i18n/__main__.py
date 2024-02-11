@@ -1,8 +1,21 @@
 import argparse
+import sys
+from typing import Iterable
 
 from i18n.settings import (
     APP,
-    DESCRIPTION
+    DESCRIPTION,
+    VERSION
+)
+from i18n.types import (
+    BaseTranslatableEnum
+)
+from i18n.tools import (
+    extract_keys
+)
+from i18n.utils.potfile import (
+    POTFile,
+    TEMPLATES
 )
 
 
@@ -15,14 +28,14 @@ def setup_argparse() -> argparse.ArgumentParser:
     parser.add_argument(
         'source',
         default='main.py',
-        help='The source file to extract translations from (main file of application)',
+        help='source file to extract translations from (main file of application)',
         nargs='?'
     )
 
     parser.add_argument(
         'destination',
         default='main.pot',
-        help='Destination .pot file',
+        help='destination .pot file',
         nargs='?'
     )
 
@@ -33,13 +46,41 @@ def setup_argparse() -> argparse.ArgumentParser:
         default=False
     )
 
+    parser.add_argument(
+        '-t', '--template',
+        required=False,
+        default='common',
+        help='.pot file template',
+        choices=set(TEMPLATES.keys())
+    )
+
     return parser
+
+
+def show_version():
+    print(VERSION)
+
+
+def save_pot(file: str, keys: Iterable[str], template: str = None) -> None:
+    with POTFile(file=file, mode='w', template=template) as potfile:
+        for key in keys:
+            potfile.write(key)
 
 
 def main():
     parser = setup_argparse()
     args = parser.parse_args()
-    print(args)
+
+    if args.version:
+        show_version()
+        sys.exit(0)
+
+    keys = extract_keys(base_enum=BaseTranslatableEnum)
+    save_pot(
+        file=args.destination,
+        keys=keys,
+        template=TEMPLATES[args.template]
+    )
 
 
 if __name__ == '__main__':
