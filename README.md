@@ -58,13 +58,13 @@ print(Messages.HELLO, Messages.WORLD)  # Bonjour le monde!
 
 ### Extraction-Tools
 
-To extract the translation-keys from file:
+To extract the translation-keys from application:
 
 ```shell
 python -m i18n main.py application.pot
 ```
 
-You will obtain a .pot file like this:
+You will obtain a [.pot](https://pofile.net/) file like this:
 
 ```potfile
 msgid ""
