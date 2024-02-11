@@ -1,7 +1,7 @@
 # Translatable-Enums
 
 <p align="center">
-<img src="resources/images/logo.png" alt="Lib logo">
+<img src="https://github.com/CrazyProger1/Translatable-Enums/blob/master/resources/images/logo.png" alt="Lib logo">
 </p>
 
 <p align="center">
@@ -87,8 +87,8 @@ msgstr ""
 
 ## Status
 
-``0.0.1`` - RELEASED
+``0.0.2`` - RELEASED
 
 ## Licence
 
-Translatable-Enums is released under the MIT License. See the bundled [LICENSE](LICENSE) file for details.
+Translatable-Enums is released under the MIT License. See the bundled [LICENSE](https://github.com/CrazyProger1/Translatable-Enums/blob/master/LICENSE) file for details.
