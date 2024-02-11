@@ -1,7 +1,7 @@
 # Translatable-Enums
 
 <p align="center">
-<img src="docs/logo.png" alt="Lib logo">
+<img src="resources/images/logo.png" alt="Lib logo">
 </p>
 
 <p align="center">
@@ -28,13 +28,20 @@ poetry add translatable-enums
 ## Getting-Started
 
 ```python
-from i18n import TranslatableEnum, set_language
+from i18n import (
+    TranslatableEnum,
+    set_domain,
+    set_language
+)
 
 
 class Messages(TranslatableEnum):
     HELLO = 'Hello,'
     WORLD = 'World!'
 
+
+set_domain('app', './resources/languages')
+set_language('en')
 
 print(Messages.HELLO, Messages.WORLD)  # Hello, World!
 

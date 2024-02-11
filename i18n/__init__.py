@@ -8,6 +8,12 @@ from i18n.settings import (
     APP,
     AUTHOR
 )
+from i18n.utils.gettext import (
+    set_domain,
+    set_language,
+    get_language,
+    language
+)
 
 __name__ = APP
 __version__ = VERSION
@@ -17,4 +23,8 @@ __all__ = [
     'BaseTranslatableEnum',
     'TranslatableEnum',
     'extract_keys',
+    'set_language',
+    'get_language',
+    'set_domain',
+    'language'
 ]
