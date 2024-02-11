@@ -26,7 +26,7 @@ def test_language_contextmgr():
 
 def test_set_domain():
     set_language('uk')
-    set_domain('app', './tests/utils/languages')
+    set_domain('app', './tests/languages')
 
     assert gettext.gettext('world') == 'Світ'
 

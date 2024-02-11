@@ -13,9 +13,15 @@ from i18n.types import (
 from i18n.tools import (
     extract_keys
 )
+from i18n.utils.gettext import (
+    set_language
+)
 from i18n.utils.potfile import (
     POTFile,
     TEMPLATES
+)
+from i18n.utils.imputils import (
+    import_module
 )
 
 
@@ -74,6 +80,14 @@ def main():
     if args.version:
         show_version()
         sys.exit(0)
+
+    source = args.source
+    try:
+        import_module(source)
+    except ImportError:
+        raise
+
+    set_language('en')
 
     keys = extract_keys(base_enum=BaseTranslatableEnum)
     save_pot(

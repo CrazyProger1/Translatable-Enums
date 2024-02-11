@@ -5,11 +5,13 @@
 </p>
 
 <p align="center">
-<a href="https://github.com/CrazyProger1/RestyClient/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/CrazyProger1/RestyClient"></a>
-<a href="https://github.com/CrazyProger1/RestyClient/releases/latest"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/CrazyProger1/RestyClient"></a>
-<a href="https://pypi.org/project/resty-client/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/resty-client"></a>
-<img src="https://img.shields.io/badge/coverage-97%25-brightgreen" alt="Coverage"/>
+<a href="https://github.com/CrazyProger1/Translatable-Enums/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/CrazyProger1/Translatable-Enums"></a>
+<a href="https://github.com/CrazyProger1/Translatable-Enums/releases/latest"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/CrazyProger1/Translatable-Enums"></a>
+<a href="https://pypi.org/project/translatable-enums/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/translatable-enums"></a>
+<img src="https://img.shields.io/badge/coverage-98%25-brightgreen" alt="Coverage"/>
 </p>
+
+Translatable-Enums is an i18n tool which uses built-in Enums as a convenient way to store translation keys.
 
 ## Installation
 
@@ -53,6 +55,14 @@ set_language('fr_FR')
 
 print(Messages.HELLO, Messages.WORLD)  # Bonjour le monde!
 ```
+
+To extract the translation-keys from file:
+
+```shell
+python -m i18n main.py application.pot
+```
+
+For more examples, see the [examples](./examples) directory ;)
 
 ## Status
 

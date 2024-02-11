@@ -7,6 +7,9 @@ from types import ModuleType
 
 @cache
 def import_module(path: str) -> ModuleType:
+    if os.path.isdir(path):
+        path = os.path.join(path, '__main__.py')
+
     directory = os.path.dirname(path)
     sys.path.append(directory)
     try:

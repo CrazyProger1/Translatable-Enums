@@ -8,11 +8,11 @@ from .constants import (
 
 
 class POTFile:
-    def __init__(self, file: str, mode: TextFileMode, template: str | None = None):
+    def __init__(self, file: str, mode: TextFileMode, template: str | None = None, encoding: str | None = None):
         self._path = file
         self._mode = mode
         self._template = template
-        self._file = open(self._path, mode=mode)
+        self._file = open(self._path, mode=mode, encoding=encoding)
         self._cached_keys = set()
 
         if self._mode == 'w':
@@ -36,7 +36,7 @@ class POTFile:
             raise KeyError(f'Duplicate key: {key}')
 
         self._cached_keys.add(key)
-        text = f'msgid "{key}"\nmsgstr ""\n'
+        text = f'msgid "{key}"\nmsgstr ""\n\n'
         if comment:
             text = f'# {comment}\n{text}'
         self._file.write(text)
