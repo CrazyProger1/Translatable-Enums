@@ -1,3 +1,5 @@
+from typing import TextIO
+
 from .types import (
     TextFileMode
 )
@@ -8,11 +10,17 @@ from .constants import (
 
 
 class POTFile:
-    def __init__(self, file: str, mode: TextFileMode, template: str | None = None, encoding: str | None = None):
-        self._path = file
+    def __init__(
+            self,
+            file: str | TextIO,
+            mode: TextFileMode = 'r',
+            template: str | None = None,
+            encoding: str | None = None
+    ):
         self._mode = mode
+        self._encoding = encoding
         self._template = template
-        self._file = open(self._path, mode=mode, encoding=encoding)
+        self._file: TextIO = self._open_file(file)
         self._cached_keys = set()
 
         if self._mode == 'w':
@@ -20,6 +28,13 @@ class POTFile:
 
         if self._mode in {'a', 'r'}:
             self._load_keys()
+
+    def _open_file(self, file_or_path: str | TextIO) -> TextIO:
+        if isinstance(file_or_path, str):
+            return open(file_or_path, encoding=self._encoding, mode=self._mode)
+        elif isinstance(file_or_path, TextIO):
+            return file_or_path
+        raise TypeError(f'Unsupported type of file parameter: {file_or_path}')
 
     def _write_template(self):
         if self._template:

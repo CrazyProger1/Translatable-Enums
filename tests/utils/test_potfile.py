@@ -79,3 +79,14 @@ def test_comment_adding(file):
 
     with open(file, mode='r') as potfile:
         assert len(re.findall(r'#\s+' + comment, potfile.read())) == 1
+
+
+def test_passing_file_object(create_potfile, file, keys):
+    with open(file, mode='r', encoding='utf-8') as potfile:
+        with POTFile(file) as f:
+            assert keys == set(f.keys)
+
+
+def test_passing_invalid_file():
+    with pytest.raises(TypeError):
+        POTFile(object, mode='r')

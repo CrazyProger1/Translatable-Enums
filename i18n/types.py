@@ -1,6 +1,8 @@
 from enum import Enum
 
+from abc import abstractmethod
+
 
 class BaseTranslatableEnum(str, Enum):
-    def language(self, lang: str) -> str:
-        raise NotImplementedError
+    @abstractmethod
+    def language(self, lang: str) -> str: ...
