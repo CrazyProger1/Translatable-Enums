@@ -12,3 +12,15 @@ def test_translatable_enums():
         WORLD = 'world'
 
     assert MyEnum.WORLD.value == 'Світ'
+
+
+def test_translate_to_language():
+    set_language('en')
+    set_domain('app', './tests/languages')
+
+    class MyEnum(TranslatableEnum):
+        HELLO = 'hello'
+        WORLD = 'world'
+
+    assert MyEnum.WORLD.language('uk') == 'Світ'
+    assert MyEnum.HELLO.value == 'hello'
