@@ -1,4 +1,5 @@
 import pytest
+import re
 
 from i18n.utils.potfile import POTFile
 
@@ -15,6 +16,11 @@ def keys():
         'test2',
         'test3'
     }
+
+
+@pytest.fixture
+def template():
+    return 'Template'
 
 
 @pytest.fixture
@@ -44,3 +50,32 @@ def test_add_keys(file, keys):
 
     assert len(keys) == 0
 
+
+def test_template(file, template):
+    with POTFile(file, mode='w', template=template):
+        pass
+
+    with open(file, mode='r') as potfile:
+        assert potfile.read().strip() == template
+
+
+def test_duplicate_keys(file, keys):
+    keys_with_duplicates = list(keys)
+    keys_with_duplicates.append(keys.pop())
+
+    with POTFile(file, 'w') as potfile:
+        with pytest.raises(KeyError):
+            for key in keys_with_duplicates:
+                potfile.write(key=key, check_key=True)
+
+
+def test_comment_adding(file):
+    comment = 'test_comment'
+    with POTFile(file, 'w') as potfile:
+        potfile.write(
+            key='test',
+            comment=comment
+        )
+
+    with open(file, mode='r') as potfile:
+        assert len(re.findall(r'#\s+' + comment, potfile.read())) == 1

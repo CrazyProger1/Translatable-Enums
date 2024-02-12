@@ -1,3 +1,3 @@
-from typing import Literal
+from typing import Literal, NewType
 
-type TextFileMode = Literal['r', 'w', 'a']
+TextFileMode = NewType('TextFileMode', Literal['r', 'w', 'a'])

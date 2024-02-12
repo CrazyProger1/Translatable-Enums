@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "translatable-enums"
-version = "0.0.2"
+version = "0.0.3"
 description = "Translatable-Enums is a i18n tool which uses built-in Enums as an convenient way to store translation keys."
 authors = ["CrazyProger1 <crazyproger1@gmail.com>"]
 license = "MIT"
@@ -13,7 +13,7 @@ repository = "https://github.com/CrazyProger1/Translatable-Enums"
 documentation = "https://github.com/CrazyProger1/Translatable-Enums"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10"
 
 
 [tool.poetry.group.dev.dependencies]
