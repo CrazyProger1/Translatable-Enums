@@ -54,6 +54,8 @@ print(Messages.HELLO, Messages.WORLD)  # Привіт, Світ!
 set_language('fr_FR')
 
 print(Messages.HELLO, Messages.WORLD)  # Bonjour le monde!
+
+print(Messages.HELLO.language('uk'), Messages.WORLD.language('en'))  # Привіт, World!
 ```
 
 ### Extraction-Tools
