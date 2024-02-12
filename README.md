@@ -13,6 +13,12 @@
 
 Translatable-Enums is an i18n tool which uses built-in Enums as a convenient way to store translation keys.
 
+## Key-Features
+
+- No dependencies except the Python standard library. Based on built-in enums & gettext
+- Powerful utility for extracting translation-keys
+- Easy-to-Use
+
 ## Installation
 
 You can use PIP:
@@ -93,4 +99,5 @@ msgstr ""
 
 ## Licence
 
-Translatable-Enums is released under the MIT License. See the bundled [LICENSE](https://github.com/CrazyProger1/Translatable-Enums/blob/master/LICENSE) file for details.
+Translatable-Enums is released under the MIT License. See the
+bundled [LICENSE](https://github.com/CrazyProger1/Translatable-Enums/blob/master/LICENSE) file for details.
