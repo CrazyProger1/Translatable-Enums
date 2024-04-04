@@ -9,7 +9,7 @@ def set_language(language: str):
 
 
 def get_language() -> str:
-    return os.environ.get('LANG')
+    return os.environ.get('LANG', 'en_US')
 
 
 def set_domain(domain: str, localedir: str):

@@ -15,7 +15,7 @@ Translatable-Enums is an i18n tool which uses built-in Enums as a convenient way
 
 ## Key-Features
 
-- No dependencies except the Python standard library. Based on built-in enums & gettext
+- No dependencies except the Python's standard library. Based on built-in enums & gettext
 - Powerful utility for extracting translation-keys
 - Easy-to-Use
 

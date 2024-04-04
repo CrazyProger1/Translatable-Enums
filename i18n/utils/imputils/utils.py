@@ -14,7 +14,7 @@ def import_module(path: str) -> ModuleType:
     sys.path.append(directory)
     try:
         if not os.path.exists(path):
-            raise
+            raise ImportError(f'Module not found at: {path}')
         *_, filename = os.path.split(path)
         spec = importlib.util.spec_from_file_location(filename.replace('.py', ''), path)
         imported_module = importlib.util.module_from_spec(spec)
