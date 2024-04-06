@@ -9,6 +9,7 @@
 <a href="https://github.com/CrazyProger1/Translatable-Enums/releases/latest"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/CrazyProger1/Translatable-Enums"></a>
 <a href="https://pypi.org/project/translatable-enums/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/translatable-enums"></a>
 <img src="https://img.shields.io/badge/coverage-100%25-brightgreen" alt="Coverage"/>
+<a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code Style"></a>
 </p>
 
 Translatable-Enums is an i18n tool which uses built-in Enums as a convenient way to store translation keys.
