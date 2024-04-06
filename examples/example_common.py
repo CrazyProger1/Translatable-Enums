@@ -1,7 +1,7 @@
 from i18n import (
     TranslatableEnum,
     set_domain,
-    set_language
+    set_language,
 )
 
 
@@ -24,3 +24,4 @@ set_language('fr_FR')
 print(Messages.HELLO, Messages.WORLD)  # Bonjour le monde!
 
 print(Messages.HELLO.language('uk'), Messages.WORLD.language('en'))  # Привіт, World!
+

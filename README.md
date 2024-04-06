@@ -40,7 +40,8 @@ poetry add translatable-enums
 from i18n import (
     TranslatableEnum,
     set_domain,
-    set_language
+    set_language,
+    language
 )
 
 
@@ -63,6 +64,11 @@ set_language('fr_FR')
 print(Messages.HELLO, Messages.WORLD)  # Bonjour le monde!
 
 print(Messages.HELLO.language('uk'), Messages.WORLD.language('en'))  # Привіт, World!
+
+with language('uk_UA'):
+    print(Messages.HELLO, Messages.WORLD)  # Привіт, Світ!
+
+print(Messages.HELLO, Messages.WORLD)  # Bonjour le monde!
 ```
 
 ### Extraction-Tools
@@ -87,10 +93,12 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Hello,"
+# Messages.WORLD
+msgid "World!"
 msgstr ""
 
-msgid "World!"
+# Messages.HELLO
+msgid "Hello,"
 msgstr ""
 ```
 
