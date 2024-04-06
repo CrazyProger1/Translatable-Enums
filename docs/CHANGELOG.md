@@ -17,3 +17,15 @@
 ## v0.0.4
 
 - Fixed assertion error occurred when context firstly used
+
+## v0.0.5
+
+- Added comments:
+
+```
+# Messages.WORLD
+msgid "World!"
+msgstr ""
+```
+
+- Added more tests. Improved coverage percentage (to 100%)

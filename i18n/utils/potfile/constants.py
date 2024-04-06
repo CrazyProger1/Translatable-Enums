@@ -1,7 +1,7 @@
 import re
 
 TEMPLATES = {
-    'common': '''
+    "common": """
 msgid ""
 msgstr ""
 "Project-Id-Version: \\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\\n"
 "Content-Transfer-Encoding: 8bit\\n"
 
-'''
+"""
 }
 
-MSGID_REGEX = re.compile(r'^msgid\s+\"(.+?)\"\s*')
+MSGID_REGEX = re.compile(r"^msgid\s+\"(.+?)\"\s*")

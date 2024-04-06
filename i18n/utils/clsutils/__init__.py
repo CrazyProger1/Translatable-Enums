@@ -3,5 +3,5 @@ from .generators import (
 )
 
 __all__ = [
-    'iter_subclasses',
+    "iter_subclasses",
 ]

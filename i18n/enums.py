@@ -1,17 +1,13 @@
-import gettext
-
 from i18n.types import BaseTranslatableEnum
-from i18n.utils.gettext import (
-    language,
-    get_language
-)
+from i18n.utils.gettext import language, translate
 
 
 class TranslatableEnum(BaseTranslatableEnum):
+
     @property
     def value(self) -> str:
-        value = super(TranslatableEnum, self).value
-        return gettext.gettext(value)
+        item = super(TranslatableEnum, self)
+        return translate(item.value)
 
     def language(self, lang: str) -> str:
         with language(lang=lang):

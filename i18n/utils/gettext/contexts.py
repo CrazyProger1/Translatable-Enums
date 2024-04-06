@@ -1,9 +1,6 @@
 from contextlib import contextmanager
 
-from .shortcuts import (
-    get_language,
-    set_language
-)
+from .shortcuts import get_language, set_language
 
 
 @contextmanager

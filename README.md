@@ -8,7 +8,7 @@
 <a href="https://github.com/CrazyProger1/Translatable-Enums/blob/master/LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/CrazyProger1/Translatable-Enums"></a>
 <a href="https://github.com/CrazyProger1/Translatable-Enums/releases/latest"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/CrazyProger1/Translatable-Enums"></a>
 <a href="https://pypi.org/project/translatable-enums/"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dm/translatable-enums"></a>
-<img src="https://img.shields.io/badge/coverage-99%25-brightgreen" alt="Coverage"/>
+<img src="https://img.shields.io/badge/coverage-100%25-brightgreen" alt="Coverage"/>
 </p>
 
 Translatable-Enums is an i18n tool which uses built-in Enums as a convenient way to store translation keys.
@@ -93,9 +93,13 @@ msgid "World!"
 msgstr ""
 ```
 
+### Examples
+
+See [/examples](examples/) for more examples.
+
 ## Status
 
-``0.0.4`` - RELEASED
+```0.0.5``` - **RELEASED**
 
 ## Licence
 

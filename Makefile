@@ -19,3 +19,8 @@ coverage:
 coverage-report: coverage;
 	poetry run coverage report -m
 
+
+.PHONY: format
+format:
+	poetry run python -m black tests
+	poetry run python -m black i18n

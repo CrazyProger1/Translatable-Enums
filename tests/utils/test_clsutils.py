@@ -1,8 +1,6 @@
 import pytest
 
-from i18n.utils.clsutils import (
-    iter_subclasses
-)
+from i18n.utils.clsutils import iter_subclasses
 
 
 class FirstClass:
