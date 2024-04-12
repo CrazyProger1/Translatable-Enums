@@ -102,13 +102,50 @@ msgid "Hello,"
 msgstr ""
 ```
 
+#### Key-Format
+
+```shell
+python -m i18n main.py application.pot --key-format "{enum}.{name}.{value}"
+```
+
+Default: ```"{value}"```
+
+- enum - enum name
+- name - attribute name
+- value - attribute value
+
+Examples:
+
+```{enum}.{name}.{value}```
+```
+# Messages.WORLD
+msgid "Messages.WORLD.World!"
+msgstr ""
+```
+
+```{enum}.{name}```
+```
+# Messages.WORLD
+msgid "Messages.WORLD"
+msgstr ""
+```
+
+
+```{value}```
+```
+# Messages.WORLD
+msgid "World!"
+msgstr ""
+```
+
+
 ### Examples
 
 See [/examples](examples/) for more examples.
 
 ## Status
 
-```0.0.5``` - **RELEASED**
+```0.0.6``` - **RELEASED**
 
 ## Licence
 

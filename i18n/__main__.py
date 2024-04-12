@@ -1,12 +1,11 @@
 import argparse
 import sys
-from typing import Iterable
 
 from i18n.settings import APP, DESCRIPTION, VERSION
-from i18n.types import BaseTranslatableEnum, Key
-from i18n.tools import extract_keys
+from i18n.types import BaseTranslatableEnum
+from i18n.tools import extract_keys, save_pot
 from i18n.utils.gettext import set_language
-from i18n.utils.potfile import POTFile, TEMPLATES
+from i18n.utils.potfile import TEMPLATES
 from i18n.utils.imputils import import_module
 
 
@@ -41,17 +40,19 @@ def setup_argparse() -> argparse.ArgumentParser:
         choices=set(TEMPLATES.keys()),
     )
 
+    parser.add_argument(
+        "-k",
+        "--key-format",
+        required=False,
+        default="{value}",
+        help='key format (name - attribute name, value - attribute value, enum - enum name). Default: "{value}"',
+    )
+
     return parser
 
 
 def show_version():
     print(VERSION)
-
-
-def save_pot(file: str, keys: Iterable[Key], template: str = None) -> None:
-    with POTFile(file=file, mode="w", template=template) as potfile:
-        for key in keys:
-            potfile.write(key=key.key, comment=key.comment)
 
 
 def main():
@@ -71,7 +72,12 @@ def main():
     set_language("en")
 
     keys = extract_keys(base_enum=BaseTranslatableEnum)
-    save_pot(file=args.destination, keys=keys, template=TEMPLATES[args.template])
+    save_pot(
+        file=args.destination,
+        keys=keys,
+        template=TEMPLATES[args.template],
+        key_format=args.key_format,
+    )
 
 
 if __name__ == "__main__":

@@ -10,5 +10,7 @@ class BaseTranslatableEnum(str, Enum):
 
 @dataclass(frozen=True)
 class Key:
-    key: str
+    enum: BaseTranslatableEnum
+    name: str
+    value: str
     comment: str = None

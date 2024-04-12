@@ -29,3 +29,30 @@ msgstr ""
 ```
 
 - Added more tests. Improved coverage percentage (to 100%)
+
+## v0.0.6
+
+- Added key-format:
+
+
+```{enum}.{name}.{value}```
+```
+# Messages.WORLD
+msgid "Messages.WORLD.World!"
+msgstr ""
+```
+
+```{enum}.{name}```
+```
+# Messages.WORLD
+msgid "Messages.WORLD"
+msgstr ""
+```
+
+
+```{value}```
+```
+# Messages.WORLD
+msgid "World!"
+msgstr ""
+```

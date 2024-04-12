@@ -1,5 +1,8 @@
+from typing import Iterable
+
 from i18n.types import BaseTranslatableEnum, Key
 from i18n.utils.clsutils import iter_subclasses
+from i18n.utils.potfile import POTFile
 
 
 def extract_keys(
@@ -8,5 +11,25 @@ def extract_keys(
     keys = set()
     for subenum in iter_subclasses(base_enum):
         for item in subenum:
-            keys.add(Key(key=item.value, comment=f"{subenum.__name__}.{item.name}"))
+            keys.add(
+                Key(
+                    enum=subenum,
+                    name=item.name,
+                    value=item.value,
+                    comment=f"{subenum.__name__}.{item.name}",
+                )
+            )
     return keys
+
+
+def save_pot(
+    file: str, keys: Iterable[Key], template: str = None, key_format: str = "{value}"
+) -> None:
+    with POTFile(file=file, mode="w", template=template) as potfile:
+        for key in keys:
+            potfile.write(
+                key=key_format.format(
+                    name=key.name, value=key.value, enum=key.enum.__name__
+                ),
+                comment=key.comment,
+            )
