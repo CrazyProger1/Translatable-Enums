@@ -13,5 +13,8 @@ class TranslatableEnum(BaseTranslatableEnum):
         with language(lang=lang):
             return self.value
 
+    def format(self, *args, **kwargs):
+        return self.value.format(*args, **kwargs)
+
     def __str__(self):
         return self.value
