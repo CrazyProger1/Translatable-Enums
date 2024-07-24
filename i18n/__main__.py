@@ -2,11 +2,11 @@ import argparse
 import sys
 
 from i18n.settings import APP, DESCRIPTION, VERSION
-from i18n.types import BaseTranslatableEnum
 from i18n.tools import extract_keys, save_pot
+from i18n.types import BaseTranslatableEnum
 from i18n.utils.gettext import set_language
-from i18n.utils.potfile import TEMPLATES
 from i18n.utils.imputils import import_module
+from i18n.utils.potfile import TEMPLATES
 
 
 def setup_argparse() -> argparse.ArgumentParser:

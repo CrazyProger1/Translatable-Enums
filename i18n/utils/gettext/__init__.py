@@ -1,11 +1,5 @@
-from .shortcuts import (
-    set_language,
-    set_domain,
-    get_language,
-    translate,
-)
-
 from .contexts import language
+from .shortcuts import get_language, set_domain, set_language, translate
 
 __all__ = [
     "set_domain",

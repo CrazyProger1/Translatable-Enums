@@ -1,6 +1,6 @@
+import importlib.util
 import os
 import sys
-import importlib.util
 from functools import cache
 from types import ModuleType
 

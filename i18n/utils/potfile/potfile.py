@@ -1,8 +1,8 @@
 from io import TextIOWrapper
 from typing import TextIO
 
-from .types import TextFileMode
 from .constants import MSGID_REGEX
+from .types import TextFileMode
 
 
 class POTFile:
@@ -16,6 +16,7 @@ class POTFile:
         self._mode = mode
         self._encoding = encoding
         self._template = template
+        self._headers = {}
         self._file: TextIO = self._open_file(file)
         self._cached_keys = set()
 

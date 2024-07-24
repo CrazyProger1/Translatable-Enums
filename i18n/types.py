@@ -1,6 +1,6 @@
-from enum import Enum
-from dataclasses import dataclass
 from abc import abstractmethod
+from dataclasses import dataclass
+from enum import Enum
 
 
 class BaseTranslatableEnum(str, Enum):

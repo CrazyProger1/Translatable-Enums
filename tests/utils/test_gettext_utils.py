@@ -1,7 +1,7 @@
 import gettext
 import os
 
-from i18n.utils.gettext import set_language, get_language, language, set_domain
+from i18n.utils.gettext import get_language, language, set_domain, set_language
 
 
 def test_set_language():

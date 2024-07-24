@@ -1,5 +1,6 @@
-import pytest
 import re
+
+import pytest
 
 from i18n.utils.potfile import POTFile
 

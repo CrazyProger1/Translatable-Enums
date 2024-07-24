@@ -1,8 +1,8 @@
 import pytest
 
 from i18n import TranslatableEnum, extract_keys
-from i18n.utils.potfile import POTFile
 from i18n.tools import save_pot
+from i18n.utils.potfile import POTFile
 
 
 @pytest.fixture
@@ -33,7 +33,8 @@ def test_save_pot(test_potfile):
             [
                 key_format.format(
                     enum=key.enum.__name__, name=key.name, value=key.value
-                ) in result_keys
+                )
+                in result_keys
                 for key in keys
             ]
         )

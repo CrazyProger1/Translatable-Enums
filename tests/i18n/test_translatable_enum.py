@@ -1,6 +1,6 @@
 import pytest
 
-from i18n import TranslatableEnum, set_domain, set_language
+from i18n import TranslatableEnum, language, set_domain, set_language
 
 
 def test_translatable_enums():
