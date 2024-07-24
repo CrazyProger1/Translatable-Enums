@@ -4,7 +4,7 @@ import sys
 from i18n.settings import APP, DESCRIPTION, VERSION
 from i18n.tools import extract_keys, save_pot
 from i18n.types import BaseTranslatableEnum
-from i18n.utils.gettext import set_language
+from i18n.utils.gettext import set_key_format, set_language
 from i18n.utils.imputils import import_module
 from i18n.utils.potfile import TEMPLATES
 
@@ -72,10 +72,14 @@ def main():
     set_language("en")
 
     keys = extract_keys(base_enum=BaseTranslatableEnum)
+    template = TEMPLATES[args.template]
+
+    template = template.format(key_format=args.key_format)
+
     save_pot(
         file=args.destination,
         keys=keys,
-        template=TEMPLATES[args.template],
+        template=template,
         key_format=args.key_format,
     )
 

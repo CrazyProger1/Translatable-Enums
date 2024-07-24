@@ -10,15 +10,7 @@ def extract_keys(
 ) -> set[Key]:
     keys = set()
     for subenum in iter_subclasses(base_enum):
-        for item in subenum:
-            keys.add(
-                Key(
-                    enum=subenum,
-                    name=item.name,
-                    value=item.value,
-                    comment=f"{subenum.__name__}.{item.name}",
-                )
-            )
+        keys |= subenum.keys
     return keys
 
 

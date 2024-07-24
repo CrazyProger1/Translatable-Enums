@@ -1,7 +1,7 @@
 from io import TextIOWrapper
 from typing import TextIO
 
-from .constants import MSGID_REGEX
+from .constants import HEADER_REGEXES, MSGID_REGEX
 from .types import TextFileMode
 
 
@@ -24,7 +24,7 @@ class POTFile:
             self._write_template()
 
         if self._mode in {"a", "r"}:
-            self._load_keys()
+            self._parse_file()
 
     def _open_file(self, file_or_path: str | TextIO) -> TextIO:
         if isinstance(file_or_path, str):
@@ -37,8 +37,20 @@ class POTFile:
         if self._template:
             self._file.write(self._template)
 
-    def _load_keys(self):
+    def _parse_file(self):
         for line in self._file:
+            for header, regex in HEADER_REGEXES.items():
+                result = regex.findall(line)
+                if result:
+                    self._headers[header] = (
+                        result[0]
+                        .replace('"', "")
+                        .lstrip()
+                        .removeprefix(header + ":")
+                        .strip()
+                        .replace("\\n", "")
+                    )
+
             if MSGID_REGEX.match(line):
                 result = MSGID_REGEX.findall(line)[0]
                 self._cached_keys.add(result)
@@ -56,6 +68,10 @@ class POTFile:
     @property
     def keys(self):
         yield from self
+
+    @property
+    def headers(self) -> dict[str, str]:
+        return self._headers
 
     def close(self):
         self._file.close()
